@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">MadForumApp</string>
+    <string name="user_name">Username</string>
+    <string name="user_password">Password</string>
+    <string name="forgot_password">Forgot Password ?</string>
+    <string name="create">No account yet? Create one</string>
 
     <!--
     <string name="title_activity_login">Sign in</string>
