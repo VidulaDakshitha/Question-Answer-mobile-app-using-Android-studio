@@ -9,14 +9,15 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn;
+    Button btn, btn1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn=findViewById(R.id.welcome);
+        btn=(Button)findViewById(R.id.welcome);
+        btn1 = (Button)findViewById(R.id.btncont);
     }
 
     @Override
@@ -32,5 +33,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i=new Intent(MainActivity.this,ContactUs.class);
+
+                startActivity(i);
+            }
+        });
+
     }
 }
