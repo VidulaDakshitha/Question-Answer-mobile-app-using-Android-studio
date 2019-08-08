@@ -5,6 +5,22 @@
     <string name="forgot_password">Forgot Password ?</string>
     <string name="create">No account yet? Create one</string>
 
+    <string name="titile1">What is <i>qExpert</i> ?</string>
+    <string name="specialWord1">qExpert ?</string>
+    <string name="description1">For some <i>qExpert</i> is a place where they share their knowledge and for some it\'s a place to clear their doubts and gain knowledge.</string>
+
+    <string name="titile2">Can anyone ask <i>QUESTIONS</i> ?</string>
+    <string name="description2">Yes, all the registered users can ask and answer questions. Most importantly everything is \n <span><i>FREE</i></span></string>
+
+    <string name="titile3">Are you ready to <b>START</b> ?</string>
+    <string name="specialWord3">Start</string>
+    <string name="description3">You have a question? go ahead and sign in to get started.</string>
+
+    <!-- Button Labels -->
+    <string name="backButton">Back</string>
+    <string name="nextButton">Next</string>
+    <string name="signInButton">Sign In</string>
+
     <!--
     <string name="title_activity_login">Sign in</string>
     <string name="prompt_email">Email</string>

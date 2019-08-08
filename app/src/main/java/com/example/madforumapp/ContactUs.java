@@ -22,10 +22,10 @@ public class ContactUs extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_us);
 
-        btn1 = (ImageButton)findViewById(R.id.submit);
-        edt1 = (EditText)findViewById(R.id.contname);
-        edt2 = (EditText)findViewById(R.id.contemail);
-        edt3 = (EditText)findViewById(R.id.contreq);
+        btn1 = findViewById(R.id.submit);
+        edt1 = findViewById(R.id.contname);
+        edt2 = findViewById(R.id.contemail);
+        edt3 = findViewById(R.id.contreq);
 
 
     }
@@ -41,7 +41,7 @@ public class ContactUs extends AppCompatActivity {
                 val2 = edt2.getText().toString();
                 val3 = edt3.getText().toString();
 
-                Intent int1 = new Intent(ContactUs.this,ContactUs2.class);
+                Intent int1 = new Intent(ContactUs.this, ContactUs2.class);
                 int1.putExtra("text1", val1);
                 int1.putExtra("text2", val2);
                 int1.putExtra("text3", val3);
