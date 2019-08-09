@@ -91,6 +91,7 @@ public class MainFeed extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         bottomNavigationView.getMenu().getItem(0).setChecked(true);
+        changeFragment(homeFragment);
     }
 
     private void changeFragment(Fragment fragment){
