@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">MadForumApp</string>
+    <string name="logoTitle">qExpert</string>
     <string name="user_name">Username</string>
     <string name="user_password">Password</string>
     <string name="forgot_password">Forgot Password ?</string>
@@ -20,6 +21,30 @@
     <string name="backButton">Back</string>
     <string name="nextButton">Next</string>
     <string name="signInButton">Sign In</string>
+
+
+    <!-- image descriptions -->
+    <string name="profilePicDescription">This is the profile picture</string>
+
+    <string name="profile">Profile</string>
+    <string name="search">Search</string>
+
+    <!-- navigation text -->
+    <string name="nav_home">Home</string>
+    <string name="nav_question">Ask</string>
+    <string name="nav_contact">Contact Us</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- page headings -->
+    <string name="home_heading">Latest Questions</string>
+    <string name="ask_heading">Ask Questions</string>
+    <string name="settings_heading">Settings</string>
+
+    <!-- ask page labels -->
+    <string name="ask_title">Title</string>
+    <string name="ask_description">Description</string>
+    <string name="ask_description_hint">Describe your question as clearly as possible</string>
+    <string name="ask_post_button">Post</string>
 
     <!--
     <string name="title_activity_login">Sign in</string>

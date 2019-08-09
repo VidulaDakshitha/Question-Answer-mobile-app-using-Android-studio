@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navBtnHome"
+        android:icon="@drawable/nav_home"
+        android:title="@string/nav_home" />
+    <item
+        android:id="@+id/navBtnAsk"
+        android:icon="@drawable/nav_ask"
+        android:title="@string/nav_question" />
+    <item
+        android:id="@+id/navBtnContact"
+        android:icon="@drawable/nav_feedback"
+        android:title="@string/nav_contact" />
+    <item
+        android:id="@+id/navBtnSettings"
+        android:icon="@drawable/nav_settings"
+        android:title="@string/nav_settings" />
+</menu>

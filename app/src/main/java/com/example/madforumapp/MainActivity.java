@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         // setting the event listener for the page slider
         mMainPage.addOnPageChangeListener(viewListener);
 
-
+        DBManipulator.InitializeQuestions();
     }
 
     @Override
