@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class act2 extends AppCompatActivity {
@@ -43,5 +44,16 @@ public class act2 extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+        ImageButton btnLogin = findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mainFeedIntent = new Intent(act2.this, MainFeed.class);
+                startActivity(mainFeedIntent);
+            }
+        });
+
     }
 }
