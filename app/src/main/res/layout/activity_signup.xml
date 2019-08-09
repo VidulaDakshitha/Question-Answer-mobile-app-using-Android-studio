@@ -9,7 +9,7 @@
 
 
     <view
-        android:id="@+id/view3"
+        android:id="@+id/vidula"
         class="androidx.appcompat.widget.ActionMenuView"
         id="@+id/view"
         android:layout_width="334dp"
@@ -30,7 +30,7 @@
         app:layout_constraintVertical_bias="0.495" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/nametxt"
         android:layout_width="245dp"
         android:layout_height="39dp"
         android:layout_marginStart="8dp"
@@ -53,7 +53,7 @@
         app:layout_constraintVertical_bias="0.321" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/emailtxt"
         android:layout_width="245dp"
         android:layout_height="39dp"
         android:layout_marginStart="8dp"
@@ -76,7 +76,7 @@
         app:layout_constraintVertical_bias="0.427" />
 
     <EditText
-        android:id="@+id/editText10"
+        android:id="@+id/passwordtxt"
         android:layout_width="245dp"
         android:layout_height="39dp"
         android:layout_marginStart="8dp"
@@ -115,13 +115,12 @@
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.348"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintVertical_bias="0.095" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/signupbtn"
         android:layout_width="151dp"
         android:layout_height="49dp"
         android:layout_marginStart="8dp"
