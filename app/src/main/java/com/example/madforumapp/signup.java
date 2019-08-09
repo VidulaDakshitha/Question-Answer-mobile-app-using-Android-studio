@@ -40,14 +40,16 @@ public class signup extends AppCompatActivity {
         super.onResume();
 
 
-        v1=e1.getText().toString();
-        v2=e2.getText().toString();
-        v3=e3.getText().toString();
+
 
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // get the input texts
+                v1=e1.getText().toString();
+                v2=e2.getText().toString();
+                v3=e3.getText().toString();
 
                 Intent i1=new Intent(signup.this,personalprofile.class);
 
