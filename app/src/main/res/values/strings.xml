@@ -25,15 +25,26 @@
 
     <!-- image descriptions -->
     <string name="profilePicDescription">This is the profile picture</string>
-    <string name="home">Home</string>
+
     <string name="profile">Profile</string>
     <string name="search">Search</string>
+
+    <!-- navigation text -->
+    <string name="nav_home">Home</string>
     <string name="nav_question">Ask</string>
-    <string name="nav_feedback">Feedback</string>
+    <string name="nav_contact">Contact Us</string>
     <string name="nav_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- page headings -->
+    <string name="home_heading">Latest Questions</string>
+    <string name="ask_heading">Ask Questions</string>
+    <string name="settings_heading">Settings</string>
+
+    <!-- ask page labels -->
+    <string name="ask_title">Title</string>
+    <string name="ask_description">Description</string>
+    <string name="ask_description_hint">Describe your question as clearly as possible</string>
+    <string name="ask_post_button">Post</string>
 
     <!--
     <string name="title_activity_login">Sign in</string>

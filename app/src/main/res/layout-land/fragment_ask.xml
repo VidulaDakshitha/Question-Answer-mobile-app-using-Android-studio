@@ -7,40 +7,39 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="371dp"
         android:orientation="vertical">
-    <TextView
-        android:id="@+id/askQuestionsHeading"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/ask_heading"
-        android:textSize="28sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        />
+
+        <TextView
+            android:id="@+id/askQuestionsHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="@string/ask_heading"
+            android:textSize="28sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:orientation="horizontal"
-            >
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ask_title"
-            android:textSize="20sp"
-            android:layout_marginLeft="20dp"
-            />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/ask_title"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/questionTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:layout_marginRight="20dp"
                 android:hint="@string/ask_title"
                 android:inputType="textPersonName"
                 android:text="" />
@@ -51,32 +50,29 @@
             android:id="@+id/questionDescriptionLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="20sp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/ask_description"
-            />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/questionDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="75dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
             android:hint="@string/ask_description_hint"
-            />
+            android:inputType="textMultiLine" />
 
         <Button
             android:id="@+id/btnPostNewQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/custom_post_button"
             android:text="@string/ask_post_button" />
 
