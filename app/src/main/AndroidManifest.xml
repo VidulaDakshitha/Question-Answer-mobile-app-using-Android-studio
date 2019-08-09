@@ -19,6 +19,7 @@
         <activity android:name=".forgotpassword" />
         <activity android:name=".signup" />
         <activity android:name=".act2" />
+        <activity android:name=".personalprofile"/>
         <activity android:name=".ContactUs" />
         <activity android:name=".ContactUs2" />
         <activity android:name=".MainActivity">
