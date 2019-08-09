@@ -20,6 +20,9 @@
         <activity android:name=".signup" />
         <activity android:name=".act2" />
         <activity android:name=".personalprofile"/>
+        <activity android:name=".FeedBack"/>
+        <activity android:name=".FeedBack2"/>
+        <activity android:name=".FeedBack3"/>
         <activity android:name=".ContactUs" />
         <activity android:name=".ContactUs2" />
         <activity android:name=".MainActivity">

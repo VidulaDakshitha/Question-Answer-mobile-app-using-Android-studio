@@ -55,7 +55,11 @@ public class MainFeed extends AppCompatActivity {
         profileIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeFragment(profileFragment);
+
+                Intent i=new Intent(MainFeed.this,personalprofile.class);
+
+                startActivity(i);
+               // changeFragment(profileFragment);
             }
         });
 

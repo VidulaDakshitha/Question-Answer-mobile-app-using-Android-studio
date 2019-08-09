@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class forgotpassword extends AppCompatActivity {
 
@@ -23,6 +24,9 @@ public class forgotpassword extends AppCompatActivity {
         emailck=findViewById(R.id.checkemail);
 
         send=findViewById(R.id.btnsend);
+
+
+
 
     }
 
