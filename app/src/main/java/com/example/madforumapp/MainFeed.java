@@ -5,14 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainFeed extends AppCompatActivity {
 
@@ -33,8 +40,7 @@ public class MainFeed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_feed);
 
-
-        homeFragment = new  HomeFragment();
+        homeFragment = new HomeFragment();
         askFragment = new AskFragment();
         settingsFragment = new SettingsFragment();
         feedbackFragment = new FeedbackFragment();
@@ -42,6 +48,7 @@ public class MainFeed extends AppCompatActivity {
         profileIcon = findViewById(R.id.profileIcon);
         bottomNavigationView = findViewById(R.id.mainNavBar);
         frameLayout = findViewById(R.id.navFrame);
+
 
         changeFragment(homeFragment);
 
@@ -63,8 +70,10 @@ public class MainFeed extends AppCompatActivity {
                     case R.id.navBtnAsk:
                         changeFragment(askFragment);
                         return true;
-                    case R.id.navBtnFeeback:
-                        changeFragment(feedbackFragment);
+                    case R.id.navBtnContact:
+                        //changeFragment(feedbackFragment);
+                        Intent contactUsIntent = new Intent(MainFeed.this, ContactUs.class);
+                        startActivity(contactUsIntent);
                         return true;
                     case R.id.navBtnSettings:
                         //bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
@@ -76,6 +85,12 @@ public class MainFeed extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        bottomNavigationView.getMenu().getItem(0).setChecked(true);
     }
 
     private void changeFragment(Fragment fragment){
