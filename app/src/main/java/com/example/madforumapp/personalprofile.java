@@ -20,6 +20,9 @@ public class personalprofile extends AppCompatActivity {
 
     Button btn;
 
+    TextView moveToDashboardBtn;
+    ImageView moveToDashboardImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +37,25 @@ public class personalprofile extends AppCompatActivity {
         txt2=findViewById(R.id.rtremail);
 
         txt3=findViewById(R.id.rtrpassword);
+//
+        moveToDashboardBtn = findViewById(R.id.rtrdashboard2);
+        moveToDashboardImage = findViewById(R.id.rtrdashboard);
 
+        moveToDashboardBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent userDashbaord = new Intent(personalprofile.this, UserActivitydashbord.class);
+                startActivity(userDashbaord);
+            }
+        });
 
+        moveToDashboardImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent userDashbaord = new Intent(personalprofile.this, UserActivitydashbord.class);
+                startActivity(userDashbaord);
+            }
+        });
 
         Intent i1=getIntent();
 
