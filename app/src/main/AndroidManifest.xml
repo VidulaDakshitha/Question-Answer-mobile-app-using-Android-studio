@@ -14,16 +14,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
+       <!-- <activity
             android:name=".UserActivitydashbord"
             android:label="@string/title_activity_user_activitydashbord"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>-->
         <activity android:name=".ReplyDashbord" />
-        <activity
+       <!-- <activity
             android:name=".showReply"
             android:label="@string/title_activity_show_reply"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" />-->
         <activity android:name=".MainFeed" />
+        <activity android:name=".UserActivitydashbord" />
+        <activity android:name=".showReply" />
         <activity android:name=".forgotpassword2" />
         <activity android:name=".forgotpassword" />
         <activity android:name=".signup" />

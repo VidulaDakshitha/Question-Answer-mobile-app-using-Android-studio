@@ -64,21 +64,12 @@
     <string name="conditions">Agree to terms and conditions</string>
     <string name="prsnl_prof">Personal Profile</string>
     <string name="nam">Name</string>
+    <string name="email">Email</string>
     <string name="show_feedback">Show My Feedback</string>
     <string name="proceed_feedback">Proceed to Dashboard</string>
     <string name="editdetails_btn">Edit Details</string>
     <string name="deleteAcc_btn">Delete Account</string>
     <string name="signout_btn">Sign Out</string>
-    <string name="title_activity_show_reply">showReply</string>
-    <string name="postdashbord">Post Contain</string>
-    <string name="replyone">reply one text</string>
-    <string name="editbtntext">Edit</string>
-    <string name="deletereplbtn">Delete</string>
-    <string name="title_activity_user_activitydashbord">UserActivitydashbord</string>
-    <string name="replydetails">Number of Reply</string>
-    <string name="urflows">Your Followers</string>
-    <string name="notfidetails">Your Notification</string>
 
-    <!-- sathira -->
-    <!---->
+
 </resources>
