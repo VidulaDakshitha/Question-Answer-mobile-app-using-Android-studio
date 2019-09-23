@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "989637825828",
+    "firebase_url": "https://madforumapp-74204.firebaseio.com",
+    "project_id": "madforumapp-74204",
+    "storage_bucket": "madforumapp-74204.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989637825828:android:e63336ca9f0bf0d4ea4fb1",
+        "android_client_info": {
+          "package_name": "com.example.madforumapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989637825828-guk0poug3a6f1ekvs43i8eef7eeao2vl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.madforumapp",
+            "certificate_hash": "a76139786a5395301e4eb41e0e86548cab589471"
+          }
+        },
+        {
+          "client_id": "989637825828-rq4k72o1fvs6t5rn7t0o7002i9eqc90q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpkmkuq8R6wpO5YPXeQkRBdETt4myzuAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989637825828-rq4k72o1fvs6t5rn7t0o7002i9eqc90q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

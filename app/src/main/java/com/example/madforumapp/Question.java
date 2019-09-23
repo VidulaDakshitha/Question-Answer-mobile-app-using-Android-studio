@@ -7,7 +7,8 @@ public class Question {
     private String author;
     private String description;
 
-    private Answer[] answers;
+//    private Answer[] answers;
+    public Question(){}
 
     public Question(int id, String title, String author, String description) {
         this.id = id;
@@ -49,12 +50,12 @@ public class Question {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public Answer[] getAnswers() {
-        return answers;
-    }
-
-    public void setAnswers(Answer[] answers) {
-        this.answers = answers;
-    }
+//
+//    public Answer[] getAnswers() {
+//        return answers;
+//    }
+//
+//    public void setAnswers(Answer[] answers) {
+//        this.answers = answers;
+//    }
 }
