@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@mipmap/ic_launcher_round"
+        android:id="@+id/userimage"
+        />
+
+    <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          >
+
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:text="TextView"
+            android:textColor="#0E0D0D"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/replyto"
+                android:layout_width="6dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:paddingRight="5dp"
+                android:text="@string/reply_to" />
+
+            <TextView
+                android:id="@+id/reply_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/reply_user"
+                android:textColor="#FF5722" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/reply_messge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingTop="6dp"
+            android:paddingRight="1dp"
+            android:paddingBottom="2dp"
+            android:text="@string/reply_contain"
+            android:textColor="#E8110909" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/reply_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:paddingRight="5dp"
+                android:text="@string/date_reply"
+                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/delete_reply"
+                android:layout_width="99dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/reply_delete_btn"
+                android:paddingRight="5dp"
+                android:text="@string/delete_reply" />
+
+            <Button
+                android:id="@+id/edit_reply"
+                android:layout_width="24dp"
+                android:layout_height="38dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/reply_edit_btn"
+                android:paddingLeft="5dp"
+                android:text="@string/edit_reply" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

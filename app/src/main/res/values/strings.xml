@@ -70,6 +70,12 @@
     <string name="editdetails_btn">Edit Details</string>
     <string name="deleteAcc_btn">Delete Account</string>
     <string name="signout_btn">Sign Out</string>
+    <string name="reply_to">Reply to</string>
+    <string name="reply_user">\@Sansa</string>
+    <string name="reply_contain">Reply Reply ReplyReplyReplyReplyReplyReplyReplyReplyReplyReply</string>
+    <string name="date_reply">Sep 23</string>
+    <string name="delete_reply">Delete</string>
+    <string name="edit_reply">Edit</string>
 
 
 </resources>
