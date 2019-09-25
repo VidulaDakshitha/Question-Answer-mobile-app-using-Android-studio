@@ -59,7 +59,7 @@
     <string name="enter_name">Enter Name</string>
     <string name="email_enter">Enter Email</string>
     <string name="password_enter">Enter Password</string>
-    <string name="password_reenter">Re-enter Password</string>
+    <string name="phone_num">Enter phone Number</string>
     <string name="already_user">Already an user? Click to sign In</string>
     <string name="conditions">Agree to terms and conditions</string>
     <string name="prsnl_prof">Personal Profile</string>

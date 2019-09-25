@@ -9,14 +9,14 @@
 
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/logemail"
         android:layout_width="238dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:drawableLeft="@drawable/ic_action_name"
         android:ems="10"
-        android:hint="@string/user_name"
+        android:hint="@string/email_enter"
         android:inputType="textPersonName"
         android:textColor="@android:color/background_light"
         android:textColorLink="#3D2B2A"
@@ -29,7 +29,7 @@
 
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/logpassword"
         android:layout_width="238dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
@@ -116,5 +116,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.68"
         app:srcCompat="@drawable/btnlogin1" />
+
+    <TextView
+        android:id="@+id/tvinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Login Attempts remaining:"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.739" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

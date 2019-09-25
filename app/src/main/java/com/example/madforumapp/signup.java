@@ -1,23 +1,36 @@
 package com.example.madforumapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class signup extends AppCompatActivity {
 
-    TextView registersignin;
+    private TextView registersignin;
 
-    Button register;
+    private Button register;
 
-    EditText e1,e2,e3;
+    private CheckBox check;
 
-    String v1,v2,v3;
+    private EditText name,email,password,phone;
+
+    private FirebaseAuth firebaseAuth;
 
 
     @Override
@@ -25,41 +38,89 @@ public class signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        registersignin=findViewById(R.id.regsignin);
+        setupUIViews();
 
-        e1=findViewById(R.id.nametxt);
-        e2=findViewById(R.id.emailtxt);
-        e3=findViewById(R.id.passwordtxt);
+        firebaseAuth = FirebaseAuth.getInstance();
 
-        register=findViewById(R.id.signupbtn);
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                registerUser();
+
+                if(validate())
+                {
+                    //input data to database
+                    final String user_name= name.getText().toString().trim();
+                    final String user_email=email.getText().toString().trim();
+                    String user_password=password.getText().toString().trim();
+                    final String user_phone;
+                    user_phone = phone.getText().toString().trim();
+
+                    firebaseAuth.createUserWithEmailAndPassword(user_email,user_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            if(task.isSuccessful())
+                            {
+                                user User=new user(
+
+                                        user_name,
+                                        user_email,
+                                        user_phone
+
+
+
+                                );
+                                FirebaseDatabase.getInstance().getReference("users")
+                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .setValue(User);
+
+                                Toast.makeText(signup.this,"Registration Successful",Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(signup.this,personalprofile.class));
+
+
+                            }else
+                            {
+                                Toast.makeText(signup.this,"Registration failed",Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        }
+                    });
+
+
+                }
+
+
+
+            }
+        });
 
     }
+
+    private void setupUIViews(){
+
+        registersignin=findViewById(R.id.regsignin);
+
+        check=findViewById(R.id.checkBox);
+
+        name=findViewById(R.id.nametxt);
+        email=findViewById(R.id.emailtxt);
+        password=findViewById(R.id.passwordtxt);
+        phone=findViewById(R.id.etphone);
+
+        register=findViewById(R.id.signupbtn);
+    }
+
+
 
     @Override
     protected void onResume() {
         super.onResume();
 
 
-
-
-
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // get the input texts
-                v1=e1.getText().toString();
-                v2=e2.getText().toString();
-                v3=e3.getText().toString();
-
-                Intent i1=new Intent(signup.this,personalprofile.class);
-
-                i1.putExtra("message1",v1);
-                i1.putExtra("message2",v2);
-                i1.putExtra("message3",v3);
-
-                startActivity(i1);
-            }
-        });
 
 
 
@@ -73,7 +134,63 @@ public class signup extends AppCompatActivity {
             }
         });
 
+    }
 
+    private Boolean validate()
+    {
+        Boolean result=false;
+
+        String nam=name.getText().toString();
+        String ema=email.getText().toString();
+        String pass=password.getText().toString();
+        String phon=phone.getText().toString();
+
+        if(nam.isEmpty() || ema.isEmpty() || pass.isEmpty() || phon.isEmpty())
+        {
+            Context context=getApplicationContext();
+            LayoutInflater inflater=getLayoutInflater();
+            View customToastroot=inflater.inflate(R.layout.emptyfield_toast,null);
+            Toast customToast=new Toast(context);
+
+            customToast.setView(customToastroot);
+            customToast.setDuration(Toast.LENGTH_LONG);
+            customToast.show();
+
+        }else{
+
+            result=true;
+        }
+
+        return result;
+    }
+
+    private void registerUser()
+    {
+        String nam=name.getText().toString();
+        String ema=email.getText().toString();
+        String pass=password.getText().toString();
+        String phon=phone.getText().toString();
+
+        if(pass.length()<6)
+        {
+            password.setError("Password should be at least 6 characters long");
+            password.requestFocus();
+            return;
+        }
+
+        if(phon.length()!= 10)
+        {
+            phone.setError("Enter a valid phone number");
+            phone.requestFocus();
+            return;
+        }
+        if(check.isChecked()==false)
+        {
+            check.setError("Please click confirmation");
+            check.requestFocus();
+            return;
+        }
 
     }
+
 }
