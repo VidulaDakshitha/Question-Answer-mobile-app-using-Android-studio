@@ -27,12 +27,14 @@ public class ReplyDashbord extends AppCompatActivity {
         setContentView(R.layout.activity_reply_dashbord);
         replyList=findViewById(R.id.replyListView);
 
-        ArrayList<Reply> replies=new ArrayList<>();
-        replies.add(new Reply(1,"sathira","gghhd","sdfddffsg","sfsferef eafeae","Sep 23"));
-        replies.add(new Reply(1,"osuri","lfere","sansa","fuck me hard","Sep 23"));
+        //ArrayList<Reply> replies=new ArrayList<>();
 
-        ReplyListAdapter replyListAdapter=new ReplyListAdapter(this,replies);
-        replyList.setAdapter(replyListAdapter);
+       // replies.add(new Reply(1,"yiii","gghhd","sdfddffsg","sfsferef eafeae","Sep 23"));
+
+       ReplyDbManipulator replies=new ReplyDbManipulator();
+       ArrayList<Reply> getReplyfirbse=replies.getReplylist();
+      ReplyListAdapter replyListAdapter=new ReplyListAdapter(this,getReplyfirbse);
+      replyList.setAdapter(replyListAdapter);
 
 
 

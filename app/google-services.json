@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "989637825828-ljf7gead97hlq1ppmd5r60ou9911tsdm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.madforumapp",
+            "certificate_hash": "2452e15617ff9dbf1685007d61b559705726e090"
+          }
+        },
+        {
           "client_id": "989637825828-guk0poug3a6f1ekvs43i8eef7eeao2vl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

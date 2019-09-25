@@ -40,6 +40,21 @@
         app:layout_constraintVertical_bias="0.629"
         app:srcCompat="@drawable/com_facebook_profile_picture_blank_portrait" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="132dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textuserreply"
+        app:layout_constraintVertical_bias="0.152" />
+
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
@@ -60,13 +75,11 @@
 
     <EditText
         android:id="@+id/textuserreply"
-        android:layout_width="379dp"
-        android:layout_height="84dp"
+        android:layout_width="374dp"
+        android:layout_height="57dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="textMultiLine|textPersonName"
@@ -80,42 +93,25 @@
         app:layout_constraintVertical_bias="0.0"
         tools:text="post dashboard" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="84dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Post "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.974"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textuserreply" />
-
     <LinearLayout
-        android:layout_width="414dp"
-        android:layout_height="386dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
-         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2">
+        app:layout_constraintTop_toBottomOf="@+id/textuserreply"
+        app:layout_constraintVertical_bias="1.0">
 
         <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:id="@+id/replyListView"
-           >
-        </ListView>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
 
     </LinearLayout>
 
