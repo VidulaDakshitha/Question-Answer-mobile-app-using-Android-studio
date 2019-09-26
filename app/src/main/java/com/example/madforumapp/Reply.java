@@ -1,8 +1,8 @@
 package com.example.madforumapp;
 
 public class Reply {
-   // private  int id;
-    private  String userName;
+   private  String id;
+   private  String userName;
   //  private String userImage;
     private  String reply_user_name;
     private  String reply_messge;
@@ -20,8 +20,8 @@ public class Reply {
     }
     **/
 
-    public Reply( String userName,  String reply_user_name, String reply_messge, String reply_date) {
-
+    public Reply(String id, String userName,  String reply_user_name, String reply_messge, String reply_date) {
+        this.id=id;
         this.userName = userName;
         this.reply_user_name = reply_user_name;
         this.reply_messge = reply_messge;
@@ -50,5 +50,9 @@ public class Reply {
 
     public String getReply_date() {
         return reply_date;
+    }
+
+    public String getId() {
+        return id;
     }
 }

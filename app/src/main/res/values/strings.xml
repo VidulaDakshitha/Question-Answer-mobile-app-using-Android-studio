@@ -76,6 +76,9 @@
     <string name="date_reply">Sep 23</string>
     <string name="delete_reply">Delete</string>
     <string name="edit_reply">Edit</string>
+    <string name="add_newpost">What\'s on your mind?</string>
+    <string name="update_post">Update</string>
+    <string name="edit_reply_headline">Edit Reply</string>
 
 
 </resources>

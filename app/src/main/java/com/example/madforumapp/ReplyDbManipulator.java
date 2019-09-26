@@ -15,9 +15,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class ReplyDbManipulator {
+
     private ArrayList<Reply> replyList =new ArrayList<>();
     private Reply user_replies;
-
 
     public ReplyDbManipulator() {
 
@@ -34,7 +34,8 @@ public class ReplyDbManipulator {
                     String reply_text=ds.child("reply_text").getValue().toString();
                     String date=ds.child("date").getValue().toString();
 
-                    user_replies=new Reply(username,reply_to,reply_text,date);
+                    String reply_id=ds.getKey();
+                    user_replies=new Reply(reply_id,username,reply_to,reply_text,date);
                     //need to username
                     if (username.equals("sansa")) {
                         replyList.add(user_replies);
@@ -49,10 +50,25 @@ public class ReplyDbManipulator {
             }
         });
     }
+    public void ReplyDelete(String reply_id){
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference deleteref = database.getReference("replies");
+        deleteref.child(reply_id).removeValue();
+
+        Log.i("delete","Reply deleted successful :"+String.valueOf(reply_id));
+    }
+
+    public void EditReply(String reply_id,String Edit_message){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference edit_reply = database.getReference("replies");
+        edit_reply.child(reply_id).child("reply_text").setValue(Edit_message);
+    }
 
 
     public ArrayList getReplylist(){
 
         return replyList;
     }
+
 }

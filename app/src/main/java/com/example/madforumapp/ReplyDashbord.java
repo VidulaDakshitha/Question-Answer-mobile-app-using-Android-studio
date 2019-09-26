@@ -17,28 +17,39 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class ReplyDashbord extends AppCompatActivity {
-    String[]UserName={"sansa","aryya","osuri","sathira"} ;
-    String [] Reply_messge={"10000","555555","95656898","9999"};
-    ListView replyList;
 
+    ListView replyList;
+    ReplyDbManipulator replies;
+    ArrayList<Reply> getReplyfirbse;
+    ReplyListAdapter replyListAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reply_dashbord);
+       setContentView(R.layout.activity_reply_dashbord);
         replyList=findViewById(R.id.replyListView);
 
-        //ArrayList<Reply> replies=new ArrayList<>();
 
-       // replies.add(new Reply(1,"yiii","gghhd","sdfddffsg","sfsferef eafeae","Sep 23"));
 
-       ReplyDbManipulator replies=new ReplyDbManipulator();
-       ArrayList<Reply> getReplyfirbse=replies.getReplylist();
-      ReplyListAdapter replyListAdapter=new ReplyListAdapter(this,getReplyfirbse);
-      replyList.setAdapter(replyListAdapter);
 
 
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        replies=new ReplyDbManipulator();
+        getReplyfirbse=replies.getReplylist();
+        replyListAdapter=new ReplyListAdapter(this,getReplyfirbse);
+        replyList.setAdapter(replyListAdapter);
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        replyList.setAdapter(replyListAdapter);
+    }
 }

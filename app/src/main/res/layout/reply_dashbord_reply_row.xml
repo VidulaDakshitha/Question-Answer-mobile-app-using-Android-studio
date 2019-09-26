@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="horizontal"
     android:padding="20dp">
 
     <ImageView
@@ -13,10 +14,9 @@
         android:src="@mipmap/ic_launcher_round" />
 
     <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="vertical"
-          >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
 
         <TextView
@@ -35,18 +35,17 @@
 
             <TextView
                 android:id="@+id/replyto"
-                android:layout_width="10dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:paddingLeft="10dp"
-                android:paddingRight="5dp"
                 android:text="@string/reply_to" />
 
             <TextView
                 android:id="@+id/reply_user_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="#00FFFFFF"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="@string/reply_user"
@@ -57,6 +56,7 @@
             android:id="@+id/reply_messge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/replybackground"
             android:paddingLeft="10dp"
             android:paddingTop="6dp"
             android:paddingRight="1dp"
@@ -76,8 +76,7 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:paddingRight="5dp"
-                android:text="@string/date_reply"
-                 />
+                android:text="@string/date_reply" />
         </LinearLayout>
 
         <LinearLayout
@@ -89,10 +88,10 @@
                 android:id="@+id/delete_reply"
                 android:layout_width="99dp"
                 android:layout_height="39dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="100dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/reply_delete_btn"
                 android:paddingRight="5dp"
                 android:text="@string/delete_reply" />
