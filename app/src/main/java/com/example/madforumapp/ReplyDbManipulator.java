@@ -66,6 +66,8 @@ public class ReplyDbManipulator {
     }
 
 
+
+
     public ArrayList getReplylist(){
 
         return replyList;

@@ -32,7 +32,7 @@ public class Edit_Reply extends AppCompatActivity {
 
         reply_to.setText(getReply[4]);
         edit_reply.setText(getReply[2]);
-        reply_date_edit.setText("Replied date "+getReply[3]);
+        reply_date_edit.setText(getReply[3]);
 
         new_reply.setOnClickListener(new View.OnClickListener() {
             @Override
