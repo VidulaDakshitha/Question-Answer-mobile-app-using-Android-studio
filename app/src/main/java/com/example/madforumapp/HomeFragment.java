@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -31,6 +33,8 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
+
+    private List<Question> questionList = new ArrayList<>();
 
     public HomeFragment() {
         // Required empty public constructor
@@ -64,17 +68,72 @@ public class HomeFragment extends Fragment {
 
                 TextView questionTitle = v.findViewById(R.id.question_title);
                 TextView questionAuthor = v.findViewById(R.id.question_author);
-                TextView questionDescription = v.findViewById(R.id.question_description);
+                TextView questionViews = v.findViewById(R.id.views);
 
                 questionTitle.setText(model.getTitle());
                 questionAuthor.setText("by "+model.getAuthor());
-                questionDescription.setText(model.getDescription());
+                questionViews.setText(String.valueOf(model.getViews()));
 
             }
         };
 
         mainListView.setAdapter(firebaseListAdapter);
 
+        mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("posts").child(String.valueOf(i));
+
+                dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        int viewCount = Integer.parseInt(dataSnapshot.child("views").getValue().toString());
+                        dbRef.child("views").setValue(viewCount+1);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+            }
+        });
+
+//        final QuestionListAdapter questionListAdapter = new QuestionListAdapter(getContext(),questionList);
+//        mainListView.setAdapter(questionListAdapter);
+//
+//        dbRef.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//                questionList.remove(dataSnapshot.getValue(Question.class));
+//                questionList.add(dataSnapshot.getValue(Question.class));
+//                Collections.reverse(questionList);
+//                questionListAdapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+//                questionList.remove(dataSnapshot.getValue(Question.class));
+//                Collections.reverse(questionList);
+//                questionListAdapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
         // Inflate the layout for this fragment
         return view;

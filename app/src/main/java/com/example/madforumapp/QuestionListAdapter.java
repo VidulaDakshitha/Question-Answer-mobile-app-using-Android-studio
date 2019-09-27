@@ -13,9 +13,9 @@ import java.util.List;
 
 public class QuestionListAdapter extends ArrayAdapter<Question> {
 
-    public QuestionListAdapter(Context context, List<Question> users) {
+    public QuestionListAdapter(Context context, List<Question> questions) {
 
-        super(context, 0, users);
+        super(context, 0, questions);
 
     }
 
@@ -41,14 +41,14 @@ public class QuestionListAdapter extends ArrayAdapter<Question> {
 
         TextView titleTextView = convertView.findViewById(R.id.question_title);
         TextView authorTextView = convertView.findViewById(R.id.question_author);
-        TextView descriptionTextView = convertView.findViewById(R.id.question_description);
+        TextView questionViews = convertView.findViewById(R.id.view);
 
 
         // Populate the data into the template view using the data object
 
         titleTextView.setText(question.getTitle());
         authorTextView.setText(question.getAuthor());
-        descriptionTextView.setText(question.getDescription());
+        questionViews.setText(question.getViews());
 
         // Return the completed view to render on screen
 

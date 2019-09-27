@@ -2,7 +2,7 @@ package com.example.madforumapp;
 
 public class Question {
     private int id;
-
+    private int views;
     private String title;
     private String author;
     private String description;
@@ -15,6 +15,7 @@ public class Question {
         this.title = title;
         this.author = author;
         this.description = description;
+        this.views=0;
     }
 
 //    getters and setters
@@ -49,6 +50,14 @@ public class Question {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getViews() {
+        return views;
+    }
+
+    public void setViews(int views) {
+        this.views = views;
     }
 //
 //    public Answer[] getAnswers() {
