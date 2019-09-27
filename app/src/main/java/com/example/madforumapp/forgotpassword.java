@@ -1,5 +1,6 @@
 package com.example.madforumapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,23 +8,63 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class forgotpassword extends AppCompatActivity {
 
-    EditText emailck;
-    Button send;
+    EditText emailcheck;
+    Button emailsend;
 
-    String val1;
+    FirebaseAuth firebaseAuth;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgotpassword);
 
-        emailck=findViewById(R.id.checkemail);
+        emailcheck=findViewById(R.id.etcheckemail);
 
-        send=findViewById(R.id.btnsend);
+        emailsend=findViewById(R.id.btnemailsend);
+
+        firebaseAuth=FirebaseAuth.getInstance();
+
+        emailcheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String user_email=emailcheck.getText().toString().trim();
+
+                if(user_email.equals(""))
+                {
+                    Toast.makeText(forgotpassword.this,"Please enter your registered emailID",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    firebaseAuth.sendPasswordResetEmail(user_email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+
+                            if(task.isSuccessful())
+                            {
+                                Toast.makeText(forgotpassword.this,"Reset email sent",Toast.LENGTH_SHORT).show();
+                                finish();
+                                startActivity(new Intent(forgotpassword.this,act2.class));
+                            }else{
+
+                                Toast.makeText(forgotpassword.this,"Errpr in sending reset password email",Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                    });
+
+                }
+            }
+        });
 
 
 
@@ -34,19 +75,6 @@ public class forgotpassword extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                val1=emailck.getText().toString();
-
-                Intent i=new Intent(forgotpassword.this,forgotpassword2.class);
-
-                i.putExtra("val1",val1);
-
-                startActivity(i);
-
-            }
-        });
     }
 }

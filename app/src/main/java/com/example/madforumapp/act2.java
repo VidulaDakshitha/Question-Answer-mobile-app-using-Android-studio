@@ -3,8 +3,10 @@ package com.example.madforumapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -55,33 +57,30 @@ public class act2 extends AppCompatActivity {
 
     public void validate(String userName,String userPassword)
     {
-       /* if(userName.equals("Admin")&&userPassword.equals("1234"))
-        {
-            startActivity(new Intent(act2.this,personalprofile.class));
-        }*/
-        firebaseAuth.signInWithEmailAndPassword(userName,userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful())
-                {
-                    Toast.makeText(act2.this,"Login Successful",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(act2.this,MainFeed.class));
-                }else{
+        if(validate()) {
 
-                    Toast.makeText(act2.this,"Login Failed",Toast.LENGTH_SHORT).show();
-                    counter--;
+            firebaseAuth.signInWithEmailAndPassword(userName, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(act2.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(act2.this, MainFeed.class));
+                    } else {
 
-                    info.setText("Login Attempts remaining:" + String.valueOf(counter));
+                        Toast.makeText(act2.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                        counter--;
 
-                    if(counter==0)
-                    {
-                        btnLogin.setEnabled(false);
+                        info.setText("Login Attempts remaining:" + String.valueOf(counter));
+
+                        if (counter == 0) {
+                            btnLogin.setEnabled(false);
+                        }
+
                     }
 
                 }
-
-            }
-        });
+            });
+        }
 
 
        /* if((userName.equals("Admin")&&(userPassword.equals("1234")))) {
@@ -100,6 +99,30 @@ public class act2 extends AppCompatActivity {
 
         }*/
 
+    }
+
+    private Boolean validate()
+    {
+        Boolean result = false;
+        String val_email=email.getText().toString();
+        String val_password=password.getText().toString();
+        if(val_email.isEmpty() || val_password.isEmpty())
+        {
+            Context context=getApplicationContext();
+            LayoutInflater inflater=getLayoutInflater();
+            View customToastroot=inflater.inflate(R.layout.emptyfield_toast,null);
+            Toast customToast=new Toast(context);
+
+            customToast.setView(customToastroot);
+            customToast.setDuration(Toast.LENGTH_LONG);
+            customToast.show();
+
+        }
+        else{
+
+            result=true;
+        }
+        return result;
     }
 
 
