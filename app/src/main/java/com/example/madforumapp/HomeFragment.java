@@ -1,6 +1,7 @@
 package com.example.madforumapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -89,6 +90,9 @@ public class HomeFragment extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         int viewCount = Integer.parseInt(dataSnapshot.child("views").getValue().toString());
                         dbRef.child("views").setValue(viewCount+1);
+                        Intent viewQuestion = new Intent(getActivity(), ViewQuestion.class);
+                        viewQuestion.putExtra("question_id", Integer.parseInt(dataSnapshot.child("id").getValue().toString()));
+                        startActivity(viewQuestion);
                     }
 
                     @Override
