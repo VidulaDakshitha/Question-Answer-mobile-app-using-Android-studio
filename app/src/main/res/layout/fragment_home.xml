@@ -4,13 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".HomeFragment"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/question_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#d1d2d1"
+            android:dividerHeight="2dp">
+
+        </ListView>
 
         <TextView
             android:id="@+id/textView2"
@@ -22,21 +32,12 @@
             android:text="@string/home_heading"
             android:textSize="28sp" />
 
-        <ListView
-            android:id="@+id/question_listview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="#d1d2d1"
-            android:dividerHeight="2dp">
+        <!--      <androidx.recyclerview.widget.RecyclerView-->
+        <!--          android:id="@+id/question_list"-->
+        <!--          android:layout_width="match_parent"-->
+        <!--          android:layout_height="match_parent"-->
 
-        </ListView>
-
-<!--      <androidx.recyclerview.widget.RecyclerView-->
-<!--          android:id="@+id/question_list"-->
-<!--          android:layout_width="match_parent"-->
-<!--          android:layout_height="match_parent"-->
-
-<!--          />-->
+        <!--          />-->
 
     </LinearLayout>
 

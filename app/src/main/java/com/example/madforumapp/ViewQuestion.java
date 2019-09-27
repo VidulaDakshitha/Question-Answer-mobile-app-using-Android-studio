@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,8 @@ public class ViewQuestion extends AppCompatActivity {
     EditText replyText;
     Button replyButton;
 
+    private FirebaseUser currentUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,7 @@ public class ViewQuestion extends AppCompatActivity {
         description = findViewById(R.id.description);
         replyButton=findViewById(R.id.addReply);
         replyText=findViewById(R.id.replyText);
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         DatabaseReference dbPostRef = FirebaseDatabase.getInstance().getReference("posts").child(String.valueOf(id)).getRef();
         dbPostRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -67,13 +71,27 @@ public class ViewQuestion extends AppCompatActivity {
                 dbRef
         ) {
             @Override
-            protected void populateView(View v, Answer model, int position) {
+            protected void populateView(View v, final Answer model, int position) {
 
                 TextView answer = v.findViewById(R.id.txtAnswer);
                 TextView author = v.findViewById(R.id.txtAnswerBy);
-
+                ImageButton btnDelete = v.findViewById(R.id.btnDelete);
+                //;
                 answer.setText(model.getDescription());
                 author.setText("by "+model.getAuthor());
+
+                if( model.getAuthor().equalsIgnoreCase(currentUser.getEmail().toString()) ){
+                    btnDelete.setVisibility(View.VISIBLE);
+                    btnDelete.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            DatabaseReference dbRef = database.getReference("answers");
+                            dbRef.child(String.valueOf(id)).child(String.valueOf(model.getId())).removeValue();
+                        }
+                    });
+                }
+                else btnDelete.setVisibility(View.INVISIBLE);
 
             }
         };
@@ -84,6 +102,11 @@ public class ViewQuestion extends AppCompatActivity {
         replyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(replyText.getText().toString().isEmpty()){
+                    Toast.makeText(ViewQuestion.this, "Answer field cannot be left empty!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference dbRef = database.getReference("answers");
 
@@ -92,7 +115,7 @@ public class ViewQuestion extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         int num = (int)dataSnapshot.child(String.valueOf(id)).getChildrenCount();
-                        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                        //FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
                         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("answers").child(String.valueOf(id)).child(String.valueOf(num));
 

@@ -7,55 +7,61 @@
     android:layout_marginRight="10dp"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
-    card_view:cardCornerRadius="10dp"
-    android:background="@color/browser_actions_bg_grey"
+    card_view:cardCornerRadius="5dp"
     >
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:orientation="vertical">
-        <TextView
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="views" />
+
+            <TextView
+                android:id="@+id/views"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="10"
+                android:textAlignment="center"
+                android:textColor="#050505"
+                android:textSize="35sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="views"/>
-     <TextView
-         android:id="@+id/views"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="10"
-         android:textSize="35sp"
-         android:textColor="#050505"
-         android:layout_marginRight="10dp"
-         android:textAlignment="center"
-         android:gravity="center"
-         />
+            android:layout_marginLeft="25dp"
+            android:gravity="left"
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                android:id="@+id/question_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Question Title"
+                android:textColor="#050505"
+                android:textSize="27sp" />
+
+            <TextView
+                android:id="@+id/question_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="by Lakshan Perera"
+                android:textSize="15sp" />
         </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginLeft="25dp" android:gravity="left"
-
-        >
-
-    <TextView
-        android:id="@+id/question_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Question Title"
-        android:textColor="#050505"
-        android:textSize="27sp" />
-
-    <TextView
-        android:id="@+id/question_author"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="by Lakshan Perera"
-        android:textSize="15sp"
-        android:layout_marginTop="5dp"
-        />
-    </LinearLayout>
     </LinearLayout>
 
 
