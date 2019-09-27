@@ -57,9 +57,7 @@ public class MainFeed extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent i=new Intent(MainFeed.this,personalprofile.class);
-
                 startActivity(i);
-               // changeFragment(profileFragment);
             }
         });
 
@@ -70,17 +68,14 @@ public class MainFeed extends AppCompatActivity {
                     case R.id.navBtnHome:
                         changeFragment(homeFragment);
                         return true;
-
                     case R.id.navBtnAsk:
                         changeFragment(askFragment);
                         return true;
                     case R.id.navBtnContact:
-                        //changeFragment(feedbackFragment);
                         Intent contactUsIntent = new Intent(MainFeed.this, ContactUs.class);
                         startActivity(contactUsIntent);
                         return true;
                     case R.id.navBtnSettings:
-                        //bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
                         changeFragment(settingsFragment);
                         return true;
 
@@ -96,6 +91,11 @@ public class MainFeed extends AppCompatActivity {
         super.onResume();
         bottomNavigationView.getMenu().getItem(0).setChecked(true);
         changeFragment(homeFragment);
+    }
+
+    public void ChangeToHome(){
+        changeFragment(homeFragment);
+        bottomNavigationView.getMenu().getItem(0).setChecked(true);
     }
 
     private void changeFragment(Fragment fragment){

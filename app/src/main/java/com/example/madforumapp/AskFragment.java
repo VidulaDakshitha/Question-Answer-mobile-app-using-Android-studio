@@ -69,6 +69,9 @@ public class AskFragment extends Fragment {
 
                         ref.setValue(q);
                         Toast.makeText(getActivity().getApplicationContext(), "Posted Successfully!", Toast.LENGTH_SHORT).show();
+                        ((MainFeed)getActivity()).ChangeToHome();
+                        title.setText("");
+                        description.setText("");
                     }
 
                     @Override
