@@ -8,71 +8,6 @@
     tools:context=".MainFeed">
 
 
-    <GridLayout
-        android:id="@+id/gridLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:columnCount="3"
-        android:rowCount="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <!-- main title -->
-        <TextView
-            android:id="@+id/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="13dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/logoTitle"
-            android:textSize="25sp"
-            app:fontFamily="@font/stencil" />
-
-        <!--search bar-->
-        <SearchView
-            android:id="@+id/searchBar"
-            android:layout_width="569dp"
-            android:layout_height="31dp"
-            android:layout_row="0"
-            android:layout_column="1"
-
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/round_textbox_style" />
-
-        <!-- profile icon -->
-        <ImageView
-            android:id="@+id/profileIcon"
-            android:layout_width="37dp"
-            android:layout_height="32dp"
-            android:layout_row="0"
-            android:layout_column="2"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/com_facebook_profile_picture_blank_portrait"
-            android:clickable="true"
-            android:contentDescription="@string/profilePicDescription" />
-    </GridLayout>
-
     <!-- main scroll view to display the question feed -->
 
 
@@ -83,11 +18,8 @@
         android:layout_height="56dp"
 
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -100,18 +32,17 @@
 
     <FrameLayout
         android:id="@+id/navFrame"
-        android:layout_width="782dp"
-        android:layout_height="237dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/mainNavBar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gridLayout2">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.505">
 
     </FrameLayout>
 

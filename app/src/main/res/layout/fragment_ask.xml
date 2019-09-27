@@ -78,7 +78,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:background="@drawable/custom_post_button"
+            android:textColor="@color/browser_actions_bg_grey"
+            android:background="@drawable/com_facebook_button_background"
             android:text="@string/ask_post_button" />
 
     </LinearLayout>
