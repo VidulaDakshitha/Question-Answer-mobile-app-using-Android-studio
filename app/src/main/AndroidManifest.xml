@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewQuestion"></activity>
+        <activity android:name=".ViewQuestion" android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".Edit_Reply" />
         <!--
          <activity
@@ -24,7 +24,7 @@
             android:label="@string/title_activity_show_reply"
             android:theme="@style/AppTheme.NoActionBar" />
         -->
-        <activity android:name=".MainFeed" />
+        <activity android:name=".MainFeed" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".UserActivitydashbord" />
         <activity android:name=".showReply" />
         <activity android:name=".forgotpassword2" />
