@@ -79,6 +79,7 @@
     <string name="add_newpost">What\'s on your mind?</string>
     <string name="update_post">Update</string>
     <string name="edit_reply_headline">Edit Reply</string>
+    <string name="title_activity_user_dashbord">UserDashbordActivity</string>
 
 
 </resources>

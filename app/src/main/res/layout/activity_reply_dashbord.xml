@@ -11,10 +11,8 @@
         android:layout_width="425dp"
         android:layout_height="150dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:scaleType="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -59,14 +57,18 @@
         android:layout_width="363dp"
         android:layout_height="39dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        android:autoText="false"
         android:background="@drawable/add_new_post"
+
+        android:clickable="true"
         android:ems="10"
+        android:focusableInTouchMode="false"
         android:freezesText="false"
         android:hint="@string/add_newpost"
         android:inputType="textMultiLine|textPersonName"
+        android:linksClickable="false"
+        android:onClick="onaddNewPost"
         android:shadowColor="#B51A1616"
         android:textAlignment="center"
         android:textColor="#B8B8B8"
@@ -79,25 +81,46 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         tools:text="@string/add_newpost" />
 
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="846dp"
+        app:barrierDirection="left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="411dp" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="399dp"
-        android:layout_height="421dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="4dp"
+        android:layout_width="401dp"
+        android:layout_height="520dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="115dp"
         android:background="#DADADA"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textuserreply">
+        app:layout_constraintTop_toBottomOf="@+id/textuserreply"
+        app:layout_constraintVertical_bias="0.45"
+        tools:visibility="visible">
 
         <ListView
             android:id="@+id/replyListView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></ListView>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"></ListView>
 
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.51" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
