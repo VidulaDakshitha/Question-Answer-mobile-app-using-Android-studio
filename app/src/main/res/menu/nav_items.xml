@@ -15,7 +15,7 @@
         android:icon="@drawable/nav_feedback"
         android:title="@string/nav_contact" />
     <item
-        android:id="@+id/navBtnSettings"
-        android:icon="@drawable/nav_settings"
-        android:title="@string/nav_settings" />
+        android:id="@+id/navBtnProfile"
+        android:icon="@drawable/nav_user"
+        android:title="@string/profile" />
 </menu>
