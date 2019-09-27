@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class signup extends AppCompatActivity {
@@ -49,7 +50,7 @@ public class signup extends AppCompatActivity {
 
                 registerUser();
 
-                if(validate())
+                if(validate() && registerUser())
                 {
                     //input data to database
                     final String user_name= name.getText().toString().trim();
@@ -77,8 +78,10 @@ public class signup extends AppCompatActivity {
                                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .setValue(User);
 
-                                Toast.makeText(signup.this,"Registration Successful",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(signup.this,MainFeed.class));
+                                sendEmail();
+
+                               // Toast.makeText(signup.this,"Registration Successful",Toast.LENGTH_SHORT).show();
+                                //startActivity(new Intent(signup.this,MainFeed.class));
 
 
                             }else
@@ -164,8 +167,10 @@ public class signup extends AppCompatActivity {
         return result;
     }
 
-    private void registerUser()
+    private boolean registerUser()
     {
+        Boolean result=false;
+
         String nam=name.getText().toString();
         String ema=email.getText().toString();
         String pass=password.getText().toString();
@@ -175,22 +180,49 @@ public class signup extends AppCompatActivity {
         {
             password.setError("Password should be at least 6 characters long");
             password.requestFocus();
-            return;
+            return false;
         }
 
         if(phon.length()!= 10)
         {
             phone.setError("Enter a valid phone number");
             phone.requestFocus();
-            return;
+            return false;
         }
         if(check.isChecked()==false)
         {
             check.setError("Please click confirmation");
             check.requestFocus();
-            return;
+            return false;
+        }else{
+
+            result=true;
         }
 
+        return result;
+    }
+
+    private void sendEmail()
+    {
+        FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
+
+        if(firebaseUser!=null)
+        {
+            firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+
+                    if(task.isSuccessful())
+                    {
+                        Toast.makeText(signup.this,"Successfully registered,Verification email sent",Toast.LENGTH_SHORT).show();
+                        firebaseAuth.signOut();
+                        startActivity(new Intent(signup.this,act2.class));
+                    }else{
+                        Toast.makeText(signup.this,"Verification email hasnt been sent",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 
 }

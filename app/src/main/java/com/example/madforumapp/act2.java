@@ -63,8 +63,9 @@ public class act2 extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(act2.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(act2.this, MainFeed.class));
+                      //  Toast.makeText(act2.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        //startActivity(new Intent(act2.this, MainFeed.class));
+                        checkEmailVerification();
                     } else {
 
                         Toast.makeText(act2.this, "Login Failed", Toast.LENGTH_SHORT).show();
@@ -162,5 +163,21 @@ public class act2 extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void checkEmailVerification()
+    {
+        FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
+        Boolean email = firebaseUser.isEmailVerified();
+
+        if(email)
+        {
+            finish();
+            Toast.makeText(act2.this, "Login Successful", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(act2.this,MainFeed.class));
+        }else{
+            Toast.makeText(act2.this,"Please verify by clicking link sent to your mail",Toast.LENGTH_LONG).show();
+            firebaseAuth.signOut();
+        }
     }
 }

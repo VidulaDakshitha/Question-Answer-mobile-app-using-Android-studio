@@ -34,7 +34,7 @@ public class forgotpassword extends AppCompatActivity {
 
         firebaseAuth=FirebaseAuth.getInstance();
 
-        emailcheck.setOnClickListener(new View.OnClickListener() {
+        emailsend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

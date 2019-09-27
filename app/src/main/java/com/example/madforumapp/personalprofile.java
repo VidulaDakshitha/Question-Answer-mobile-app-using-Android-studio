@@ -23,6 +23,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class personalprofile extends AppCompatActivity {
@@ -40,6 +41,8 @@ public class personalprofile extends AppCompatActivity {
     private FirebaseUser firebaseUser;
 
     private FirebaseAuth firebaseAuth;
+
+    private FirebaseDatabase database;
 
 
 
@@ -163,6 +166,26 @@ public class personalprofile extends AppCompatActivity {
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful())
                                 {
+
+                                    //To delete from table 2
+
+                                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                                    Query applesQuery = ref.child("users").orderByChild("Email").equalTo(firebaseUser.getEmail());
+
+                                    ((Query) applesQuery).addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                            for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
+                                                appleSnapshot.getRef().removeValue();
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {
+                                          //  Log.e(taq, "onCancelled", databaseError.toException());
+                                        }
+                                    });
+
                                     Toast.makeText(personalprofile.this,"Account Deleted",Toast.LENGTH_LONG).show();
 
                                     Intent intent=new Intent(personalprofile.this,act2.class);
