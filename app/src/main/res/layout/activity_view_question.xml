@@ -20,6 +20,21 @@
         app:layout_constraintStart_toEndOf="@+id/replyText"
         app:layout_constraintTop_toTopOf="@+id/replyText" />
 
+    <Button
+        android:id="@+id/changeReply"
+        android:layout_width="96dp"
+        android:layout_height="42dp"
+        android:background="@android:color/holo_orange_dark"
+        android:text="@string/change_reply"
+        android:textColor="@color/browser_actions_bg_grey"
+        app:layout_constraintBottom_toBottomOf="@+id/replyText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/replyText"
+        app:layout_constraintTop_toTopOf="@+id/replyText"
+
+        android:visibility="invisible"
+        />
+
     <ListView
         android:id="@+id/answerList"
         android:layout_width="0dp"

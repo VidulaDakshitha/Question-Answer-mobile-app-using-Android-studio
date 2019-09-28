@@ -82,6 +82,7 @@
     <string name="title_activity_user_dashbord">UserDashbordActivity</string>
     <string name="reply_hint">Add an answer</string>
     <string name="add_reply">Add</string>
+    <string name="change_reply">Update</string>
 
 
 </resources>

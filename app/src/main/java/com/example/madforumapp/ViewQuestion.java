@@ -26,7 +26,9 @@ public class ViewQuestion extends AppCompatActivity {
 
     TextView title, description, author;
     EditText replyText;
-    Button replyButton;
+    Button replyButton, changeReplyButton;
+    int editingAnswerID,editingQuestionID;
+    private Answer editingAnswer;
 
     private FirebaseUser currentUser;
 
@@ -40,6 +42,7 @@ public class ViewQuestion extends AppCompatActivity {
         title = findViewById(R.id.title);
         description = findViewById(R.id.description);
         replyButton=findViewById(R.id.addReply);
+        changeReplyButton=findViewById(R.id.changeReply);
         replyText=findViewById(R.id.replyText);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -76,12 +79,15 @@ public class ViewQuestion extends AppCompatActivity {
                 TextView answer = v.findViewById(R.id.txtAnswer);
                 TextView author = v.findViewById(R.id.txtAnswerBy);
                 ImageButton btnDelete = v.findViewById(R.id.btnDelete);
+                ImageButton btnEdit = v.findViewById(R.id.btnEdit);
                 //;
                 answer.setText(model.getDescription());
                 author.setText("by "+model.getAuthor());
 
                 if( model.getAuthor().equalsIgnoreCase(currentUser.getEmail().toString()) ){
                     btnDelete.setVisibility(View.VISIBLE);
+                    btnEdit.setVisibility(View.VISIBLE);
+
                     btnDelete.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -90,9 +96,37 @@ public class ViewQuestion extends AppCompatActivity {
                             dbRef.child(String.valueOf(id)).child(String.valueOf(model.getId())).removeValue();
                         }
                     });
-                }
-                else btnDelete.setVisibility(View.INVISIBLE);
 
+                    btnEdit.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            DatabaseReference dbRef = database.getReference("answers").child(String.valueOf(id)).child(String.valueOf(model.getId())).getRef();
+                            editingAnswerID=model.getId();
+                            editingQuestionID=id;
+                            dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    editingAnswer=dataSnapshot.getValue(Answer.class);
+                                    replyText.setText(dataSnapshot.child("description").getValue().toString());
+                                    changeReplyButton.setVisibility(View.VISIBLE);
+                                    replyButton.setVisibility(View.INVISIBLE);
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+                        }
+                    });
+
+                }
+                else {
+                    btnDelete.setVisibility(View.INVISIBLE);
+                    btnEdit.setVisibility(View.INVISIBLE);
+                }
             }
         };
 
@@ -134,6 +168,22 @@ public class ViewQuestion extends AppCompatActivity {
 
             }
         });
+
+        changeReplyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference dbRef = database.getReference("answers").child(String.valueOf(editingQuestionID)).child(String.valueOf(editingAnswerID)).getRef();
+                editingAnswer.setDescription(replyText.getText().toString().trim());
+                dbRef.setValue(editingAnswer);
+
+                changeReplyButton.setVisibility(View.INVISIBLE);
+                replyButton.setVisibility(View.VISIBLE);
+                replyText.setText("");
+            }
+        });
+
+
 //        Toast.makeText(this, "ID: "+, Toast.LENGTH_SHORT).show();
     }
 }
