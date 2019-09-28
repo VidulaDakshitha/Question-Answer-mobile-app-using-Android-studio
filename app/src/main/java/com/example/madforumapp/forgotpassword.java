@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,6 +20,8 @@ public class forgotpassword extends AppCompatActivity {
 
     EditText emailcheck;
     Button emailsend;
+
+    ImageView back;
 
     FirebaseAuth firebaseAuth;
 
@@ -31,6 +35,8 @@ public class forgotpassword extends AppCompatActivity {
         emailcheck=findViewById(R.id.etcheckemail);
 
         emailsend=findViewById(R.id.btnemailsend);
+
+        back=findViewById(R.id.btnhome);
 
         firebaseAuth=FirebaseAuth.getInstance();
 
@@ -74,6 +80,18 @@ public class forgotpassword extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+      back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i=new Intent(forgotpassword.this,act2.class);
+
+                startActivity(i);
+                //firebaseAuth.signOut();
+
+            }
+        });
 
 
     }

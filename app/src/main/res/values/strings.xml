@@ -67,7 +67,7 @@
     <string name="email">Email</string>
     <string name="show_feedback">Show My Feedback</string>
     <string name="proceed_feedback">Proceed to Dashboard</string>
-    <string name="editdetails_btn">Edit Details</string>
+    <string name="editdetails_btn">Update</string>
     <string name="deleteAcc_btn">Delete Account</string>
     <string name="signout_btn">Sign Out</string>
     <string name="reply_to">Reply to</string>
