@@ -3,6 +3,7 @@ package com.example.madforumapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,8 +26,11 @@ public class act2 extends AppCompatActivity {
     private ImageButton btnLogin;
     private EditText email,password;
     private int counter=5;
+    private ProgressDialog progressDialog;
 
     private FirebaseAuth firebaseAuth;
+
+
 
 
     @Override
@@ -48,6 +52,7 @@ public class act2 extends AppCompatActivity {
 
         FirebaseUser user=firebaseAuth.getCurrentUser();
 
+        progressDialog =new ProgressDialog(this);
        /* if(user!=null)
         {
             finish();
@@ -57,16 +62,20 @@ public class act2 extends AppCompatActivity {
 
     public void validate(String userName,String userPassword)
     {
+        progressDialog.setMessage("Your Account has been successfully Verified through Email");
+        progressDialog.show();
         if(validate()) {
 
             firebaseAuth.signInWithEmailAndPassword(userName, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
+                        progressDialog.dismiss();
                       //  Toast.makeText(act2.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         //startActivity(new Intent(act2.this, MainFeed.class));
                         checkEmailVerification();
                     } else {
+                        progressDialog.dismiss();
 
                         Toast.makeText(act2.this, "Login Failed", Toast.LENGTH_SHORT).show();
                         counter--;

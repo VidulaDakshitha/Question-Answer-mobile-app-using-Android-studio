@@ -214,7 +214,7 @@ public class signup extends AppCompatActivity {
 
                     if(task.isSuccessful())
                     {
-                        Toast.makeText(signup.this,"Successfully registered,Verification email sent",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(signup.this,"Successfully registered,Verification email sent",Toast.LENGTH_LONG).show();
                         firebaseAuth.signOut();
                         startActivity(new Intent(signup.this,act2.class));
                     }else{
